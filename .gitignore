@@ -1,0 +1,28 @@
+# Archivos de Python generados localmente
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales y configuración local
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Archivos del sistema operativo y editores
+.DS_Store
+.idea/
+.vscode/
+
+# Salidas generadas por la aplicación RSA
+llave_publica.json
+llave_privada_empleado.json
+credenciales_encriptadas.json
+mensaje_encriptado.txt
+
+# Material criptográfico sensible si se agrega después
+*.pem
+*.key
+*.crt
+*.p12
