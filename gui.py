@@ -318,7 +318,7 @@ class AplicacionRSA(tk.Tk):  # Creamos una ventana principal especializada para 
             detalle = generar_llaves_desde_primos(p, q, d, e_base)  # Generamos el detalle completo de claves.
             bloques = cifrar_texto(texto, detalle.publica)  # Ciframos el texto.
             proceso = construir_proceso(texto, detalle, bloques)  # Construimos el proceso detallado.
-            paquete = {"texto_original_referencia": texto, "mensaje_encriptado": bloques, "clave_publica": {"n": detalle.n, "e": detalle.e}, "clave_privada_para_descifrar": {"n": detalle.n, "d": detalle.d}, "proceso": proceso}  # Creamos paquete TXT.
+            paquete = {"mensaje_encriptado": bloques, "clave_privada_para_descifrar": {"n": detalle.n, "d": detalle.d}}  # Creamos paquete TXT sin texto original ni proceso detallado.
             ARCHIVO_MENSAJE_TXT.write_text(json.dumps(paquete, ensure_ascii=False, indent=2), encoding="utf-8")  # Guardamos el TXT.
             self.escribir(proceso)  # Mostramos el proceso.
             self.advertir("El TXT incluye clave privada para poder descifrar este ejercicio. En seguridad real, una clave privada no se comparte.")  # Mostramos advertencia roja.

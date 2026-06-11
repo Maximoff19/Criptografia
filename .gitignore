@@ -10,6 +10,11 @@ env/
 .env
 .env.*
 
+# Frontend web generado con Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
 # Archivos del sistema operativo y editores
 .DS_Store
 .idea/

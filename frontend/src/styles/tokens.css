@@ -1,0 +1,32 @@
+:root {
+  --bg-primary: #090909;
+  --bg-secondary: #0d0d0d;
+  --bg-tertiary: #111111;
+  --bg-elevated: #161616;
+  --bg-input: #0a0a0a;
+  --surface: #0d0d0d;
+  --border: #1a1a1a;
+  --border-accent: #00ff62;
+  --border-hover: #2a2a2a;
+  --text-primary: #e8e8e8;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+  --text-inverse: #090909;
+  --accent: #00ff62;
+  --accent-dim: #00cc4e;
+  --accent-subtle: rgba(0, 255, 98, 0.08);
+  --success: #00ff62;
+  --warning: #ffb800;
+  --error: #ff3355;
+  --info: #00b4ff;
+  --font-display: "SF Mono", "JetBrains Mono", "Geist Mono", monospace;
+  --font-body: "SF Pro Display", "Geist Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+}

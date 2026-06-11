@@ -446,13 +446,10 @@ def construir_proceso_detallado(texto: str, detalle: DetalleGeneracionRSA, bloqu
     return "\n".join(lineas)  # Devolvemos todo el proceso como texto único.
 
 
-def guardar_mensaje_en_txt(texto: str, detalle: DetalleGeneracionRSA, bloques: list[int], proceso: str) -> None:  # Guardamos el mensaje cifrado en archivo .txt.
+def guardar_mensaje_en_txt(detalle: DetalleGeneracionRSA, bloques: list[int]) -> None:  # Guardamos solo el paquete necesario para descifrar el mensaje.
     paquete = {  # Creamos un objeto JSON legible que se puede abrir con bloc de notas.
-        "texto_original_referencia": texto,  # Guardamos el texto original solo para revisión académica local.
         "mensaje_encriptado": bloques,  # Guardamos los bloques cifrados.
-        "clave_publica": {"n": detalle.n, "e": detalle.e},  # Guardamos la clave pública generada.
         "clave_privada_para_descifrar": {"n": detalle.n, "d": detalle.d},  # Guardamos la clave privada para que el archivo pueda descifrarse después.
-        "proceso": proceso,  # Guardamos el proceso detallado para evidencia de cálculo.
     }  # Cerramos el paquete de salida.
     ARCHIVO_MENSAJE_TXT.write_text(json.dumps(paquete, ensure_ascii=False, indent=2), encoding="utf-8")  # Escribimos el archivo .txt en formato JSON legible.
 
@@ -481,7 +478,7 @@ def encriptar_texto_paso_a_paso() -> None:  # Ejecutamos el flujo completo para 
     print()  # Dejamos una línea antes del proceso.
     print(proceso)  # Mostramos el proceso en pantalla.
     imprimir_recuadro_advertencia("El TXT incluye la clave privada para que otro usuario pueda descifrar este ejercicio. En seguridad real, una clave privada no se comparte.")  # Advertimos en rojo dentro de recuadro ASCII.
-    guardar_mensaje_en_txt(texto, detalle, bloques, proceso)  # Guardamos el mensaje cifrado y la clave privada en TXT.
+    guardar_mensaje_en_txt(detalle, bloques)  # Guardamos solo el mensaje cifrado y la clave privada en TXT.
     imprimir_estado(f"Mensaje encriptado guardado en {ARCHIVO_MENSAJE_TXT.name}.", "EXITO")  # Confirmamos el guardado.
 
 

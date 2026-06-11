@@ -1,0 +1,100 @@
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+body::selection {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.main-panel {
+  min-width: 0;
+  padding: 32px;
+}
+
+.view {
+  display: grid;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  animation: view-in 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes view-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view-header {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.view-title {
+  max-width: 840px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.view-copy {
+  max-width: 720px;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 920px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .main-panel {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-panel {
+    padding: 14px;
+  }
+
+  .view-title {
+    font-size: clamp(2rem, 12vw, 3.6rem);
+  }
+}

@@ -1,0 +1,47 @@
+.dashboard-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.hero-console {
+  min-height: 100%;
+}
+
+.manual-flow {
+  display: grid;
+  gap: 18px;
+}
+
+.candidate-list {
+  max-height: 260px;
+  overflow: auto;
+}
+
+.split-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.small-copy {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.result-slot {
+  display: grid;
+  gap: 16px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 1100px) {
+  .dashboard-hero,
+  .split-actions {
+    grid-template-columns: 1fr;
+  }
+}
