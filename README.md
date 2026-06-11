@@ -1,14 +1,16 @@
-# Criptografía RSA — Herramienta educativa y empresarial
+# Criptografía RSA — Open-source para empresas que valoran su privacidad
 
-**Una contribución a la comunidad matemática** y una herramienta diseñada para que las empresas gestionen credenciales de forma totalmente segura usando criptografía RSA pura, sin dependencias externas, implementada desde los principios fundamentales.
+**Una herramienta open-source** pensada para empresas que necesitan un entorno seguro y privado para gestionar credenciales y datos sensibles, sin depender de servicios third-party, sin servidores centrales, sin compartir secretos. Criptografía RSA pura implementada desde cero.
 
 ---
 
 ## ¿Qué es esto?
 
-Este proyecto implementa el algoritmo RSA completo desde cero: generación de primos, cálculo de `n` y `φ(n)`, selección de exponentes `d` y `e`, cifrado y descifrado. No es un wrapper de OpenSSL ni una librería externa — es RSA hecho a mano, con cada paso matemático visible y verificable.
+Es un **sistema de cifrado asimétrico open-source** que cualquier empresa puede descargar, auditar, modificar y ejecutar en su propio entorno — completamente off-line, sin conexión a internet, sin enviar datos a ningún lado.
 
-Pensalo como un **laboratorio de criptografía asimétrica** que funciona en tres interfaces:
+El core del proyecto es RSA implementado desde los fundamentos matemáticos: generación de primos, cálculo de `n` y `φ(n)`, selección de exponentes `d` y `e`, cifrado y descifrado. No es un wrapper de OpenSSL ni una librería externa — es RSA hecho a mano, transparente, verificable.
+
+Pensalo como un **laboratorio de criptografía asimétrica privado** que funciona en tres interfaces:
 
 | Interfaz | Propósito |
 |----------|-----------|
@@ -22,7 +24,7 @@ Todas las interfaces usan el mismo backend matemático (`rsa_backend.py`). Lo qu
 
 ## ¿Para qué sirve en una empresa?
 
-El flujo principal refleja un caso real de gestión de credenciales:
+El flujo principal resuelve un problema real: **cómo compartir credenciales de forma segura sin un intermediario**.
 
 ```
 1. El empleado genera su par de llaves (pública y privada)
@@ -32,12 +34,13 @@ El flujo principal refleja un caso real de gestión de credenciales:
 5. SOLO el empleado puede descifrar, usando su llave privada
 ```
 
-**Esto es seguridad en dos direcciones:**
+**Por qué esto es importante para tu empresa:**
 
-- ✅ Si alguien intercepta la llave pública, **no puede descifrar** — solo cifrar.
-- ✅ Si alguien roba el archivo cifrado, **no puede leerlo** sin la llave privada.
-- ✅ La llave privada **nunca viaja** — la genera y la conserva el empleado.
-- ✅ No hay servidor central, no hay contraseñas compartidas, no hay punto único de ataque.
+- ✅ **Zero trust**: no hay servidor central, no hay administrador que pueda leer las credenciales.
+- ✅ **Privacidad total**: los datos cifrados pueden viajar por cualquier canal (email, USB, Slack) y nadie sin la llave privada puede leerlos.
+- ✅ **Sin dependencias externas**: no necesitás un proveedor de cloud, no necesitás internet, no necesitás nada más que Python.
+- ✅ **Código abierto y auditable**: cualquier equipo de seguridad puede revisar exactamente qué hace el algoritmo.
+- ✅ **Off-line first**: todo corre en la máquina local. No hay telemetría, no hay logs externos, no hay filtración posible por el lado del servidor.
 
 ---
 
@@ -204,13 +207,14 @@ También hay endpoints `/api/terminal/*` que devuelven el mismo output textual q
 
 ---
 
-## Licencia y advertencia
+## Advertencia
 
-**Esto es una implementación académica** para aprender aritmética modular y criptografía RSA. No está auditada para producción. Para credenciales reales de una empresa, usá una librería probada como `cryptography` con RSA-OAEP, o directamente un protocolo como TLS/HTTPS.
+Esta herramienta implementa RSA educativo sin padding. Para sistemas de producción con requisitos de seguridad formales, usá una librería auditada como `cryptography` con RSA-OAEP o un protocolo estándar como TLS/HTTPS.
 
-Dicho esto: la matemática es la misma. Si entendés esta implementación, entendés cómo funciona RSA en cualquier sistema.
+Dicho esto: **la matemática es la misma**. Si entendés esta implementación, entendés cómo funciona RSA en cualquier sistema. Y si tu empresa necesita una solución transparente, auditable y sin dependencias, este proyecto es un excelente punto de partida.
 
 ---
 
-Contribuí a la comunidad matemática.
-Aprendé, usá, mejorá, compartí.
+**Open-source. Privado. Seguro. Sin excusas.**
+
+Descargalo, auditá el código, modificá lo que necesites, ejecutalo en tu entorno. No hay servers, no hay tracking, no hay sorpresas. Solo matemática.
